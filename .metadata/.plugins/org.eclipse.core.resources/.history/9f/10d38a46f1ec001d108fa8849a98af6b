@@ -1,0 +1,15 @@
+package com.example.demo.DAW1CL1SergioGallegos.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.DAW1CL1SergioGallegos.model.bd.Especialidad;
+
+public interface EspecialidadRepository {
+	
+@Repository
+	public interface EstadoRepository 
+	extends JpaRepository<Especialidad, Integer>{
+		
+}
+}

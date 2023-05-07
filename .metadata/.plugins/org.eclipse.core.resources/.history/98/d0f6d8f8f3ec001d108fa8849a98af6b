@@ -1,0 +1,17 @@
+package com.example.demo.DAW1CL1SergioGallegos.model.bd;
+
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+
+@Data
+@Entity
+@Table(name = "especialidad")
+public class Especialidad {
+	@Id
+	private Integer IdEsp;
+	@Column(name = "NomEsp")
+	private String NomEsp;
+	@Column(name = "Costo")
+	private double Costo;
+}

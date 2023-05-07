@@ -1,0 +1,5 @@
+package com.example.demo.DAW1CL1SergioGallegos.repository;
+
+public interface EspecialidadRepository {
+
+}

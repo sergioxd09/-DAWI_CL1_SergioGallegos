@@ -1,0 +1,41 @@
+package com.example.demo.DAW1CL1SergioGallegos.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.example.demo.DAW1CL1SergioGallegos.model.bd.Especialidad;
+import com.example.demo.DAW1CL1SergioGallegos.service.EspecialidadService;
+
+public class EspecialidadController {
+	@Autowired
+	private EspecialidadService estadoService;
+
+	
+	@GetMapping("/frmListaEspecialidad")
+	public String frmListaEspecialidad(Model model) {
+		model.addAttribute("listaEspecialidad",
+				estadoService.listarEspecialidad());
+		return "Estado/frmListaEspecialidad";
+	}
+	@GetMapping("/frmRegistrarEspecialidad")
+	public String frmRegEstado(Model model) {
+		model.addAttribute("especialidadForm", new Especialidad());
+		model.addAttribute("visualizar",false);
+		return "Estado/frmRegEstado";
+	}
+	@PostMapping("frmRegEstado")
+		public String registrarEstado(@ModelAttribute("estadoForm")Estado estado,Model model) {
+		String mensaje = "Estado registrado correctamente";
+		try {
+			estadoService.registrarEstado(estado);
+		}catch(Exception e) {
+			mensaje="estado no registrado";
+		}
+		model.addAttribute("estadoForm",new Estado());
+		model.addAttribute("visualizar",true);
+		model.addAttribute("respuesta",mensaje);
+		estadoService.registrarEstado(estado);
+		return "Estado/frmRegEstado";
+	}
+}
